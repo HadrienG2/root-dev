@@ -27,9 +27,8 @@ ninja
 
 # Run the tests
 #
-# FIXME: For now, this will fail. Figure out the right exclude list to make it
-#        work. Also, add to this list tests which are not run automatically by
-#        ctest like the RHist tests.
+# FIXME: For now, this will fail. Understand why (most likely because our build
+#        is too minimal) and add an exclude regex as necessary.
 #
 ctest -j8
 
