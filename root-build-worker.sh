@@ -27,15 +27,18 @@ ninja
 
 # Run the tests
 #
-# - Some tests are disabled because they rely on disabled ROOT components. These
-#   tests actually shouldn't be present, I should report that as a bug.
+# - Some tests are disabled because they rely on disabled ROOT components and
+#   thus couldn't succeed without enabling those (unwanted) components.
 # - The tutorial-tree-bill test is disabled because it tries to write into our
 #   read-only ROOT source tree, which is not okay.
 # - The gtest-tree-treeplayer-test-treeprocessormt test is disabled because it
 #   segfaults for no clear reason.
 #
+# TODO: Report tests which are enabled when they shouldn't be as bugs.
 # TODO: Also trim out tests which succeed but do things they shouldn't do such
 #       as downloading huge files.
+# TODO: Roll out a RelWithDebInfo build to figure out why the treeprocessormt
+#       test is segfaulting, hopefully that should give a better stack trace.
 #
 ctest -j8 -E "(pyunittests|SQlite|gdml|^tutorial-tree-bill$|^gtest-tree-treeplayer-test-treeprocessormt$)"
 
