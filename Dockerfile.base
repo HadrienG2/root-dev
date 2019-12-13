@@ -1,0 +1,13 @@
+FROM opensuse/tumbleweed
+
+RUN zypper ref                                                                 \
+    && zypper dup -y                                                           \
+    && zypper in -y binutils cmake freetype2-devel gcc gcc-c++ git gsl-devel   \
+                    gzip liblz4-devel libzstd-devel ninja pcre-devel python3   \
+                    tar tbb-devel which xxhash-devel xz-devel zlib-devel       \
+    && zypper clean -a
+
+RUN mkdir /mnt/root /root/ROOT-build
+COPY root-build-worker.sh /root/ROOT-build
+
+RUN echo "Base system image built, see build.sh for next steps"
