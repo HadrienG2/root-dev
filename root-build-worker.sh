@@ -1,3 +1,8 @@
+####################### CONTAINER-SIDE ROOT BUILD SCRIPT #######################
+# This script is meant to run inside of the container. If you are trying to    #
+# build the container, you're probably looking for the "build.sh" script.      #
+################################################################################
+
 # Force bash to catch more errors
 set -euo pipefail
 IFS=$'\n\t'
