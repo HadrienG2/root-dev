@@ -31,7 +31,7 @@ docker run -v ~/Software/root:/mnt/root:ro                                     \
 
 # If the ROOT build succeeded, we can now commit the root-dev image from the
 # root-dev-cont container that we just made...
-docker commit root-dev-cont root-dev
+docker commit --change "CMD bash" root-dev-cont root-dev
 
 # ...and then we don't need that container anymore and can drop it
 docker container rm root-dev-cont
