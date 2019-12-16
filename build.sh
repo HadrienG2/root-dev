@@ -37,7 +37,7 @@ docker commit --change "CMD bash" root-dev-cont root-dev
 docker container rm root-dev-cont
 
 # Alright, we're done
-echo "*** Docker development container was built successfully! ***"
+echo "*** Docker development container was built successfully ***"
 
 # NOTE: The output "root-dev" image preserves the CMake build cache, so that
 #       you can quickly re-run the build by just firing up a container in
