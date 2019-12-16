@@ -39,4 +39,4 @@ docker container rm root-dev-cont
 # NOTE: The output "root-dev" image preserves the CMake build cache, so that
 #       you can quickly re-run the build by just firing up a container in
 #       root-dev with the same bind mount as above, go to /root/ROOT-build,
-#       and run "ninja" and whatever alse you'd like in there.
+#       and run "ninja" and whatever else you'd like in there.
