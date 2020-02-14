@@ -24,7 +24,7 @@ docker build --pull --tag root-dev-base -f Dockerfile.base .
 # bind mount of the ROOT development source tree, and the Docker Build
 # Reproducibilty Strike Force won't let us do such an unclean thing.
 #
-docker run -v ~/Software/root:/mnt/root:ro                                     \
+docker run -v ~/Bureau/Programmation/root:/mnt/root:ro                         \
            --name root-dev-cont                                                \
            root-dev-base                                                       \
            bash /root/ROOT-build/root-build-worker.sh
