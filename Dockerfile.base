@@ -4,8 +4,8 @@ RUN zypper ref                                                                 \
     && zypper dup -y                                                           \
     && zypper in -y binutils cmake freetype2-devel gcc gcc-c++ git gsl-devel   \
                     gzip liblz4-devel libzstd-devel lsb-release ninja          \
-                    pcre-devel python3 tar tbb-devel which xxhash-devel        \
-                    xz-devel zlib-devel                                        \
+                    pcre-devel python3 python3-devel tar tbb-devel which       \
+                    xxhash-devel xz-devel zlib-devel                           \
     && zypper clean -a
 
 RUN mkdir /mnt/root /root/ROOT-build
