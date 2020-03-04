@@ -6,6 +6,7 @@ RUN zypper ref                                                                 \
                     gzip liblz4-devel libzstd-devel lsb-release ninja          \
                     pcre-devel python3 python3-devel tar tbb-devel which       \
                     xxhash-devel xz-devel zlib-devel                           \
+    && zypper in -y perf                                                       \
     && zypper clean -a
 
 RUN mkdir /mnt/root /root/ROOT-build
