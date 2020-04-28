@@ -12,18 +12,21 @@ cd /root/ROOT-build
 
 # Configure a minimal ROOT build, just what I need for RHist development and
 # nothing more. This will save disk space and build time
-cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_STANDARD=17        \
-              -Dasimage=OFF -Dclad=OFF -Ddavix=OFF -Dfail-on-missing=ON        \
-              -Dfftw3=OFF -Dfitsio=OFF -Dgdml=OFF -Dgfal=OFF -Dhttp=OFF        \
-              -Dmlp=OFF -Dmysql=OFF -Dopengl=OFF -Doracle=OFF -Dpgsql=OFF      \
-              -Dpythia6=OFF -Dpythia8=OFF -Dpyroot=OFF -Droofit=OFF -Droot7=ON \
-              -Droottest=OFF -Dspectrum=OFF -Dsqlite=OFF -Dssl=OFF             \
-              -Dtesting=ON -Dthreads=ON -Dtmva=OFF -Dvdt=OFF -Dwebgui=OFF      \
-              -Dx11=OFF -Dxml=OFF -Dxrootd=OFF                                 \
+#
+# FIXME: It seems ninja is currently broken, falling back to GNU Make.
+#
+cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_STANDARD=17  -Dasimage=OFF \
+      -Dclad=OFF -Ddavix=OFF -Ddev=ON -Dfail-on-missing=ON -Dfftw3=OFF         \
+      -Dfitsio=OFF -Dgdml=OFF -Dgfal=OFF -Dhttp=OFF -Dmlp=OFF -Dmysql=OFF      \
+      -Dopengl=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF        \
+      -Dpyroot=OFF -Dpyroot_experimental=OFF -Droofit=OFF -Droot7=ON           \
+      -Droottest=OFF -Dspectrum=OFF -Dsqlite=OFF -Dssl=OFF -Dtesting=ON        \
+      -Dthreads=ON -Dtmva=OFF -Dvdt=OFF -Dwebgui=OFF -Dx11=OFF -Dxml=OFF       \
+      -Dxrootd=OFF                                                             \
       /mnt/root
 
 # Build ROOT
-ninja
+make -j8
 
 # Run the tests
 #
@@ -43,4 +46,4 @@ ninja
 ctest -j8 -E "(pyunittests|SQlite|gdml|^tutorial-tree-bill$|^gtest-tree-treeplayer-test-treeprocessormt$)"
 
 # Install ROOT
-ninja install
+make install
