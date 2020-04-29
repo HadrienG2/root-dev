@@ -9,7 +9,7 @@ RUN zypper ref                                                                 \
     && zypper in -y perf                                                       \
     && zypper clean -a
 
-RUN mkdir /mnt/root /root/ROOT-build
+RUN mkdir /mnt/root /mnt/hists-mt /root/ROOT-build
 COPY root-build-worker.sh /root/ROOT-build
 
 WORKDIR /root/ROOT-build

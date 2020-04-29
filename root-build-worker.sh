@@ -51,3 +51,22 @@ ctest -j8 -E "(gdml|^tutorial-tree-bill$)"
 
 # Install ROOT
 make install
+
+# Activate the ROOT enviroment
+#
+# Must disable the protection against use of unbound shell variables as the
+# thisroot script is not compatible with that.
+#
+set +u
+source /usr/local/bin/thisroot.sh
+set -u
+
+# Test that hists-mt still works with this ROOT version
+#
+# FIXME: Make it work in C++14 mode
+#
+cd /mnt/hists-mt
+if [ ${ROOT_CXX_STD} -eq 17 ]; then
+    make clean
+    make test -j8
+fi

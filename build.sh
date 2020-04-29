@@ -31,6 +31,7 @@ for ROOT_CXX_STD in 14 17; do
     # Reproducibilty Strike Force won't let us do such an unclean thing.
     #
     docker run -v ~/Bureau/Programmation/root:/mnt/root:ro                     \
+               -v ~/Bureau/Programmation/hists-mt:/mnt/hists-mt                \
                --name root-dev-cont                                            \
                root-dev-base                                                   \
                bash /root/ROOT-build/root-build-worker.sh $ROOT_CXX_STD
