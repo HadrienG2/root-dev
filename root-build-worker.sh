@@ -42,7 +42,7 @@ make -j8
 # TODO: Also trim out tests which succeed but do things they shouldn't do such
 #       as downloading huge files.
 #
-ctest -j8 -E "(pyunittests|SQlite|gdml|^tutorial-tree-bill$)"
+ctest -j8 -E "(gdml|^tutorial-tree-bill$)"
 
 # Install ROOT
 make install
