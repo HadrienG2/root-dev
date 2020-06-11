@@ -12,4 +12,6 @@ RUN zypper ref                                                                 \
 RUN mkdir /mnt/root /root/ROOT-build
 COPY root-build-worker.sh /root/ROOT-build
 
+WORKDIR /root/ROOT-build
+
 RUN echo "Base system image built, see build.sh for next steps"
