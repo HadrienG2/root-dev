@@ -15,8 +15,11 @@ cd /root/ROOT-build
 #
 # FIXME: It seems ninja is currently broken, falling back to GNU Make.
 #
+# FIXME: Disabling "dev" mode, which implies -Werror, until ROOT master is
+#        warnings-free on GCC 10.
+#
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_STANDARD=14  -Dasimage=OFF \
-      -Dclad=OFF -Ddavix=OFF -Ddev=ON -Dfail-on-missing=ON -Dfftw3=OFF         \
+      -Dclad=OFF -Ddavix=OFF -Ddev=OFF -Dfail-on-missing=ON -Dfftw3=OFF        \
       -Dfitsio=OFF -Dgdml=OFF -Dgfal=OFF -Dhttp=OFF -Dmlp=OFF -Dmysql=OFF      \
       -Dopengl=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF        \
       -Dpyroot=OFF -Dpyroot_experimental=OFF -Droofit=OFF -Droot7=ON           \
